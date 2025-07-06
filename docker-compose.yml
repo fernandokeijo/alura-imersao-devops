@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mounts the current directory to /app in the container
+      # This allows for live-reloading when you change the code
+      - .:/app
+    command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
